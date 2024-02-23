@@ -1,0 +1,26 @@
+<!--<vector xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:width="260dp"-->
+<!--    android:height="4dp"-->
+<!--    android:viewportWidth="200"-->
+<!--    android:viewportHeight="100">-->
+<!--  <path-->
+<!--      android:pathData="M2,0L198,0A2,2 0,0 1,200 2L200,98A2,2 0,0 1,198 100L2,100A2,2 0,0 1,0 98L0,2A2,2 0,0 1,2 0z"-->
+<!--      android:fillColor="#22C7B8"/>-->
+<!--</vector>-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@android:id/background">
+  <shape>
+    <corners android:radius="5dp" />
+    <solid android:color="#D3D3D3" /> <!-- Background color -->
+  </shape>
+</item>
+<item android:id="@android:id/progress">
+  <clip>
+    <shape>
+      <corners android:radius="5dp" />
+      <solid android:color="#22C7B8" /> <!-- Progress color -->
+    </shape>
+  </clip>
+</item>
+</layer-list>
+

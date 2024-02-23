@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Hospital</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="specialist_doc">Specialist - Doctor</string>
+    <string name="profile_name">Ebrahem Elzainy</string>
+    <string name="my_profile">My Profile</string>
+    <string name="employee">Employee</string>
+    <string name="search_emp_hint">Search for Employee</string>
+    <string name="male">Male</string>
+    <string name="_23_06_2001">23-06-2001</string>
+    <string name="requried">Required</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="invalid_user_type">Invalid Email or Password!</string>
+    <string name="invalid_credentials">Invalid email or password</string>
+    <string name="id">id</string>
+    <string name="calls">Calls</string>
+    <string name="specialist_receptionist">Specialist , Receptionist</string>
+    <string name="fromemplist">fromEmpList</string>
+    <string name="fromemp">fromEmp</string>
+    <string name="create_call">Create Call</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="age">age</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="select_doctor">Select Doctor</string>
+    <string name="send_call">Send Call</string>
+    <string name="case_description">Case Description</string>
+    <string name="the_request_has_been_canceled_successfully">The request has been canceled\n\t\t\t\t\t\t\t\t\tsuccessfully</string>
+    <string name="back_to_home">Back To Home</string>
+    <string name="search_for_doctors">Search for doctors</string>
+
+    <string-array name="dropdown_items">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+</resources>
