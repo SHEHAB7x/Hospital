@@ -147,6 +147,9 @@
         <action
             android:id="@+id/action_createCallFragment_to_selectDoctorFragment"
             app:destination="@id/selectDoctorFragment" />
+        <action
+            android:id="@+id/action_createCallFragment_to_callsFragment"
+            app:destination="@id/callsFragment" />
     </fragment>
     <fragment
         android:id="@+id/successfulCallFragment"
@@ -161,5 +164,9 @@
         android:id="@+id/selectDoctorFragment"
         android:name="com.example.hospital.ui.reception.SelectDoctorFragment"
         android:label="fragment_select_doctor"
-        tools:layout="@layout/fragment_select_doctor" />
+        tools:layout="@layout/fragment_select_doctor" >
+        <action
+            android:id="@+id/action_selectDoctorFragment_to_createCallFragment"
+            app:destination="@id/createCallFragment" />
+    </fragment>
 </navigation>

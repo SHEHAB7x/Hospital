@@ -3,6 +3,7 @@ package com.example.hospital.repo
 import com.example.hospital.data.DataAllUsers
 import com.example.hospital.data.ModelAllCalls
 import com.example.hospital.data.ModelAllUsers
+import com.example.hospital.data.ModelCreateCall
 import com.example.hospital.data.ModelUser
 import com.example.hospital.network.ResponseState
 import com.example.hospital.network.RetrofitService
@@ -49,5 +50,19 @@ class Repo @Inject constructor (private val retrofitService: RetrofitService) : 
         }
     }
 
+    override suspend fun createCall(
+        patientName: String,
+        doctorId: Int,
+        age: String,
+        phone: String,
+        description: String
+    ): ResponseState<ModelCreateCall> {
+        val response = retrofitService.createCall(patientName,doctorId,age,phone,description)
+        return if (response.status == 1){
+            ResponseState.Success(response)
+        }else{
+            ResponseState.Error(response.message)
+        }
+    }
 
 }

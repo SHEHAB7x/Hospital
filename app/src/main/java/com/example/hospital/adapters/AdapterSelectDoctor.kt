@@ -14,6 +14,7 @@ open class AdapterSelectDoctor : Adapter<AdapterSelectDoctor.Holder>() {
 
     var list: List<DataAllUsers>? = null
     var listener : OnItemClickListener? = null
+    var rowIndex = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding =
@@ -27,34 +28,35 @@ open class AdapterSelectDoctor : Adapter<AdapterSelectDoctor.Holder>() {
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val data = list?.get(position)
-        holder.bind(data!!)
+        holder.apply {
+
+        }
+        holder.bind(data!!,position)
     }
 
     inner class Holder(private val binding: ItemDoctorBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: DataAllUsers) {
+        fun bind(user: DataAllUsers,position: Int) {
             binding.empName.text = user.first_name
             binding.spcialist.text = "Specialist - " + user.type
 
+            if(rowIndex == position)
+                binding.radioBtn.setImageResource(R.drawable.ic_selected)
+            else
+                binding.radioBtn.setImageResource(R.drawable.radio_btn)
         }
 
         init {
-            binding.root.setOnClickListener{
-                val position = adapterPosition
-                if(position != RecyclerView.NO_POSITION){
-                    list?.get(position).let {
-                        listener?.onItemClick(it!!)
-                        binding.radioBtn.setImageResource(R.drawable.ic_selected)
-                    }
-                }
+            itemView.setOnClickListener{
+                rowIndex = layoutPosition
+                listener?.onItemClick(list?.get(layoutPosition)?.id!!,list?.get(layoutPosition)?.first_name!!)
+                notifyDataSetChanged()
             }
         }
-
-
     }
 
     interface OnItemClickListener {
-        fun onItemClick(user: DataAllUsers)
+        fun onItemClick(id : Int,name : String)
     }
 
 }

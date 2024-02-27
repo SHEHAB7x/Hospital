@@ -18,6 +18,9 @@ class Const {
         const val PENDING = "pending_doctor"
         const val LOGOUT = "logout"
 
+        const val DOCTOR_ID = "doctorId"
+        const val DOCTOR_NAME = "doctorName"
+
     }
 
 }

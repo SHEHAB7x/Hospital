@@ -35,7 +35,6 @@ class LoginViewModel @Inject constructor(
             } catch (e: Exception) {
                 _loginState.value = e.localizedMessage?.let { ResponseState.Error(it) }
             }
-
         }
     }
 

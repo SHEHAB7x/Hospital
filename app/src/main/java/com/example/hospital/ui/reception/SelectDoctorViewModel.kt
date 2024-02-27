@@ -39,6 +39,5 @@ class SelectDoctorViewModel
             val filteredList = repo.filterUsers(query)
             _filteredUsers.value = filteredList
         }
-
     }
 }

@@ -4,6 +4,7 @@ import androidx.core.content.ContextCompat.RegisterReceiverFlags
 import com.example.hospital.data.DataUser
 import com.example.hospital.data.ModelAllCalls
 import com.example.hospital.data.ModelAllUsers
+import com.example.hospital.data.ModelCreateCall
 import com.example.hospital.data.ModelUser
 import retrofit2.Response
 import retrofit2.http.Body
@@ -53,5 +54,14 @@ interface RetrofitService {
     suspend fun getCalls(
         @Query("date") date : String
     ) : ModelAllCalls
+
+    @POST("calls")
+    suspend fun createCall(
+        @Field("patient_name") patientName : String,
+        @Field("doctor_id") doctorId : Int,
+        @Field("age") age : String,
+        @Field("phone") phone : String,
+        @Field("description") description : String
+    ) : ModelCreateCall
 
 }

@@ -58,7 +58,6 @@ object AppModule {
             .create(RetrofitService::class.java)
     }
 
-
     @Provides
     @Singleton
     fun provideSharedPreferences(@ApplicationContext appContext: Context): SharedPreferences {

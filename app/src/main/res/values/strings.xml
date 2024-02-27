@@ -28,6 +28,7 @@
     <string name="the_request_has_been_canceled_successfully">The request has been canceled\n\t\t\t\t\t\t\t\t\tsuccessfully</string>
     <string name="back_to_home">Back To Home</string>
     <string name="search_for_doctors">Search for doctors</string>
+    <string name="please_select_doctor">Please Select Doctor!</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>

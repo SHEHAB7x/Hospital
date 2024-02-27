@@ -10,8 +10,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.adapters.AdapterSelectDoctor
+import com.example.hospital.data.Const
 import com.example.hospital.data.DataAllUsers
 import com.example.hospital.databinding.FragmentReceptionBinding
 import com.example.hospital.databinding.FragmentSelectDoctorBinding
@@ -60,15 +63,13 @@ class SelectDoctorFragment : Fragment() {
                     binding.loading.visibility = View.GONE
                     Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                 }
-                is ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
+                ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
             }
 
             selectDoctorViewModel.filteredUsers.observe(viewLifecycleOwner) { filteredUsers ->
                 adapterSelectDoctor?.list = filteredUsers
                 adapterSelectDoctor?.notifyDataSetChanged()
             }
-
-
         }
     }
 
@@ -89,12 +90,31 @@ class SelectDoctorFragment : Fragment() {
     private fun onClicks() {
         adapterSelectDoctor?.listener = object : AdapterSelectDoctor(),
             AdapterSelectDoctor.OnItemClickListener {
-            override fun onItemClick(user: DataAllUsers) {
-                doctorId = user.id
-                doctorName = user.first_name
-
+            override fun onItemClick(id: Int, name: String) {
+                doctorId = id
+                doctorName = name
             }
         }
+
+        binding.btnBack.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_selectDoctorFragment_to_createCallFragment)
+        }
+
+        binding.btnSelect.setOnClickListener{
+            validate()
+        }
+    }
+
+    private fun validate(){
+        if (doctorId == 0)
+            Toast.makeText(requireContext(), getString(R.string.please_select_doctor),Toast.LENGTH_SHORT).show()
+        else
+        {
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(Const.DOCTOR_ID,doctorId)
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(Const.DOCTOR_NAME,doctorName)
+            findNavController().popBackStack()
+        }
+
     }
 
 }
